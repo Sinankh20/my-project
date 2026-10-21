@@ -11,12 +11,12 @@ export default function Navbar({ contentRef }) {
     pageStyle: `
     @page {
       size: A4;
-      margin: 4mm;            /* removes the browser's header/footer (date, title, about:srcdoc, page number) */
+      margin: 4mm;
     }
     @media print {
       body {
         margin: 5mm;
-        padding: 10mm;      /* your own margin instead */
+        padding: 10mm;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
@@ -58,7 +58,7 @@ export default function Navbar({ contentRef }) {
               htmlFor="switch-component-on"
               className="cursor-pointer text-sm text-slate-600"
             >
-              <Sun className="w-5 h-5" />
+              <Sun className="w-5 h-5 text-yellow-600" />
             </label>
             <div className="relative inline-block h-5 w-11">
               <input
@@ -77,7 +77,7 @@ export default function Navbar({ contentRef }) {
               htmlFor="switch-component-on"
               className="cursor-pointer text-sm text-slate-600"
             >
-              <MoonStar className="w-5 h-5" />
+              <MoonStar className="w-5 h-5 text-slate-600 dark:text-slate-300" />
             </label>
           </div>
           <button
