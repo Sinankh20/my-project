@@ -9,7 +9,7 @@ export const prdMetadata = {
   author: "Product Team",
   stakeholders: [
     { name: "Sinan Khalid", role: "Lead Web/Frontend Engineer" },
-    { name: "Marcus Vance", role: "UI/UX Lead" },
+    { name: "Marcus Mance", role: "UI/UX Lead" },
   ],
 };
 

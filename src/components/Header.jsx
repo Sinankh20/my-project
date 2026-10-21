@@ -9,7 +9,7 @@ export default function Header() {
           <h1 className="text-2xl font-bold">{prdMetadata.title}
           <span className="ml-5 text-sm font-normal italic text-slate-500">{prdMetadata.version}</span></h1>
         </div>
-        <p className="font-sm text-slate-500 ml-1 mt-2">Log any workout, time every exercise, and compare lifts with friends.</p>
+        <p className="font-sm text-slate-500 ml-1 mt-2 dark:text-slate-400">Log any workout, time every exercise, and compare lifts with friends.</p>
         <Badge className="bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300 ml-1 mt-3">
         {prdMetadata.status}
       </Badge>

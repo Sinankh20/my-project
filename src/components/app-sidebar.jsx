@@ -1,3 +1,4 @@
+import * as React from "react";
 import {
   Sidebar,
   SidebarContent,
@@ -7,6 +8,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import {
   LayoutDashboard,
@@ -16,17 +18,57 @@ import {
 } from "lucide-react";
 
 const items = [
-  { title: "Overview", url: "#overview", icon: LayoutDashboard },
+  { title: "Overview", id: "overview", icon: LayoutDashboard },
   {
     title: "Workout Classification",
-    url: "#workout-classification",
+    id: "workout-classification",
     icon: Dumbbell,
   },
-  { title: "Features", url: "#features", icon: ListChecks },
-  { title: "Risks", url: "#risks", icon: TriangleAlert },
+  { title: "Features", id: "features", icon: ListChecks },
+  { title: "Risks", id: "risks", icon: TriangleAlert },
 ];
 
 export function AppSidebar() {
+  const [activeId, setActiveId] = React.useState("overview");
+  const { isMobile, setOpenMobile } = useSidebar();
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "-20% 0px -35% 0px",
+        threshold: 0.1,
+      }
+    );
+
+    items.forEach((item) => {
+      const element = document.getElementById(item.id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleScroll = (e, targetId) => {
+    e.preventDefault();
+
+    if (isMobile) {
+      setOpenMobile(false);
+    }
+
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      setActiveId(targetId);
+    }
+  };
+
   return (
     <Sidebar variant="sidebar" collapsible="offcanvas">
       <SidebarContent>
@@ -34,16 +76,26 @@ export function AppSidebar() {
           <SidebarGroupLabel>Navigation</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem className="mt-3 mb-3 sm:mb-1" key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+              {items.map((item) => {
+                const isActive = activeId === item.id;
+
+                return (
+                  <SidebarMenuItem
+                    className="mt-3 mb-3 sm:mb-1"
+                    key={item.title}
+                  >
+                    <SidebarMenuButton asChild isActive={isActive}>
+                      <a
+                        href={`#${item.id}`}
+                        onClick={(e) => handleScroll(e, item.id)}
+                      >
+                        <item.icon />
+                        <span>{item.title}</span>
+                      </a>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

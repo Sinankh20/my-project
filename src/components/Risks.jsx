@@ -6,7 +6,7 @@ export default function Risks() {
     <div className="mx-auto py-8">
       <div className="mb-6">
         <h2 className="text-2xl font-bold tracking-tight">Technical Risks & Mitigations</h2>
-        <p className="text-sm text-slate-500 mt-1">Potential web platform failure points and corresponding engineering solutions.</p>
+        <p className="text-sm text-slate-500 mt-1 dark:text-slate-400">Potential web platform failure points and corresponding engineering solutions.</p>
       </div>
       <div className="space-y-4 grid grid-cols-2 gap-3 items-stretch">
         {technicalRisks.map((risk, index) => {

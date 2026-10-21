@@ -12,7 +12,7 @@ export default function Features() {
             <div className="pl-1.5 pt-2">
               <ul>
                 {feature.requirements.map((req, reqIndex) => (
-                  <li key={reqIndex} className="flex items-start gap-2.5 text-sm text-slate-700">
+                  <li key={reqIndex} className="flex items-start gap-2.5 text-sm text-slate-700 dark:text-slate-300">
                     <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                     <span>{req}</span>
                   </li>
