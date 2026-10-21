@@ -8,7 +8,7 @@ export default function Risks() {
         <h2 className="text-2xl font-bold tracking-tight">Technical Risks & Mitigations</h2>
         <p className="text-sm text-slate-500 mt-1 dark:text-slate-400">Potential web platform failure points and corresponding engineering solutions.</p>
       </div>
-      <div className="space-y-4 grid grid-cols-2 gap-3 items-stretch">
+      <div className="space-y-4 sm:grid sm:grid-cols-2 gap-3 items-stretch">
         {technicalRisks.map((risk, index) => {
           return (
             <div key={index} className="border shadow-md p-4 rounded-md h-full">

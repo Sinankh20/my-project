@@ -3,10 +3,10 @@ import { Badge } from "@/components/ui/badge"
 
 export default function Header() {
   return (
-    <div className="pb-4 border-b-2 flex flex-row mt-3 gap-13">
+    <div className="pb-4 border-b-2 sm:flex flex-row mt-3 gap-13">
       <div>
         <div className="flex items-baseline gap-2">
-          <h1 className="text-2xl font-bold xl:text-5xl">{prdMetadata.title}
+          <h1 className="text-2xl sm:text-2xl font-bold xl:text-5xl">{prdMetadata.title}
           <span className="ml-5 text-sm font-normal italic text-slate-500">{prdMetadata.version}</span></h1>
         </div>
         <p className="font-sm text-slate-500 ml-1 mt-2 dark:text-slate-400">Log any workout, time every exercise, and compare lifts with friends.</p>
@@ -16,7 +16,7 @@ export default function Header() {
         <p></p>
       </div>
       <div className="flex flex-col">
-        <p>{prdMetadata.author}:</p>
+        <p className="mt-6 sm:mt-0">{prdMetadata.author}:</p>
         {prdMetadata.stakeholders.map((person, index) => {
           return (
             <div key={index} className="border rounded-md shadow-sm m-2 px-3.5 py-1.5 xl::text-2xl">

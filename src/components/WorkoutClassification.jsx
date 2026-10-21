@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 
 export default function WorkoutClassification() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 items-start">
+    <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 gap-4 items-start">
       {workoutModalities.map((item) => {
         return (
           <div
